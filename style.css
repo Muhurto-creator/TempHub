@@ -1,0 +1,355 @@
+/* General Setup */
+:root {
+    --primary-background: #111111;
+    --secondary-background: #1E1E1E;
+    --primary-accent: #6A38C2;
+    --primary-text: #EAEAEA;
+    --secondary-text: #A0A0A0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-background);
+    color: var(--primary-text);
+    line-height: 1.6;
+}
+
+/* Base Styles */
+a {
+    color: var(--primary-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-accent);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-text);
+    line-height: 1.2;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.1rem; }
+
+p {
+    color: var(--secondary-text);
+    margin-bottom: 1rem;
+}
+
+/* Utility & Interactive Elements */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(106, 56, 194, 0.4);
+}
+
+/* Links, buttons, and cards will have this transition */
+.interactive-element {
+    transition: all 0.3s ease;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--secondary-background);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-text);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-text);
+}
+
+.nav-link:hover {
+    color: var(--primary-text);
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 140px; /* Offset for fixed header + extra space */
+    padding-bottom: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: -webkit-linear-gradient(45deg, #EAEAEA, #A0A0A0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--secondary-text);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+}
+
+/* General Section Styling */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 0;
+    background-color: var(--primary-background); /* A slightly different shade could also work here */
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.step-card {
+    background-color: var(--secondary-background);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    flex-basis: 31%;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.step-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-text);
+}
+
+.step-card p {
+    color: var(--secondary-text);
+    font-size: 1rem;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-accent);
+}
+
+/* Featured Templates Section */
+.featured-templates {
+    padding: 80px 0;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.template-card {
+    background-color: var(--secondary-background);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.template-image-placeholder {
+    aspect-ratio: 16 / 9;
+    background-color: #2a2a2a; /* Slightly lighter than card bg */
+}
+
+.template-card h4 {
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-text);
+}
+
+.template-card:hover {
+    transform: scale(1.03);
+    border-color: var(--primary-accent);
+    box-shadow: 0 8px 30px rgba(106, 56, 194, 0.3);
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--secondary-background);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copyright p {
+    margin: 0;
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-text);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .section-title { font-size: 2.2rem; }
+
+    .hero h1 { font-size: 2.8rem; }
+    .hero .subtitle { font-size: 1.1rem; }
+
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-card {
+        flex-basis: 80%;
+        max-width: 400px;
+    }
+
+    .templates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        text-align: center;
+    }
+
+    .header-container {
+        padding: 0 1rem;
+    }
+
+    .main-nav {
+        gap: 12px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding-top: 100px;
+        min-height: 60vh;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .templates-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
