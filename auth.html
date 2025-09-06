@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up - TempHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Auth Page Specific Styles */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: left;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            background-color: var(--secondary-background);
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .auth-header a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-text);
+        }
+
+        .tab-navigation {
+            display: flex;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            background-color: #111111;
+            padding: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background-color: transparent;
+            border: none;
+            color: var(--secondary-text);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--primary-accent);
+            color: white;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: #111111;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: var(--primary-text);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-accent);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            background-color: #fff;
+            color: #111;
+            margin-top: 24px;
+            border: 1px solid #ddd;
+        }
+
+        .google-btn:hover {
+            background-color: #f2f2f2;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 24px 0;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: #333;
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        #signUpForm {
+            display: none;
+        }
+
+        #errorMessage {
+            color: #ef4444;
+            text-align: center;
+            margin-top: 16px;
+            min-height: 1.2em; /* Reserve space for error message */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <a href="index.html" class="logo">TempHub</a>
+        </div>
+
+        <div class="tab-navigation">
+            <button id="signInTab" class="tab-btn active">Sign In</button>
+            <button id="signUpTab" class="tab-btn">Sign Up</button>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="signInEmail">Email Address</label>
+                <input type="email" id="signInEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signInPassword">Password</label>
+                <input type="password" id="signInPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signUpForm">
+            <div class="form-group">
+                <label for="signUpEmail">Email Address</label>
+                <input type="email" id="signUpEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signUpPassword">Password</label>
+                <input type="password" id="signUpPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+        </form>
+
+        <div class="divider">OR</div>
+
+        <button class="btn google-btn">
+            <!-- TODO: Add Google 'G' Logo SVG -->
+            Sign in with Google
+        </button>
+
+        <p id="errorMessage"></p>
+
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

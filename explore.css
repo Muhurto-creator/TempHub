@@ -1,0 +1,42 @@
+/* explore.css */
+
+body {
+    padding-top: 70px; /* Offset for fixed header */
+}
+
+.explore-content {
+    padding: 40px 0;
+}
+
+.explore-content h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.template-grid-placeholder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    min-height: 50vh; /* Give it some space */
+    align-content: start;
+    border: 2px dashed var(--secondary-background);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-background);
+    color: var(--primary-text);
+    border: 1px solid #333;
+}
+
+.btn-secondary:hover {
+    background-color: #2a2a2a;
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+.main-nav .nav-link.active {
+    color: var(--primary-accent);
+    font-weight: 700;
+}
