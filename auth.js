@@ -6,7 +6,8 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider,
-    signInWithPopup,
+    signInWithRedirect,
+    getRedirectResult,
     signOut
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 
@@ -41,6 +42,23 @@ async function initializeAuth() {
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
+
+    // Check for redirect result
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result) {
+          // This means the user has just signed in via redirect and returned to our app
+          // The onAuthStateChanged observer will handle the redirect to the explore page.
+          console.log('Successfully handled redirect sign-in for user:', result.user);
+        }
+      }).catch((error) => {
+        // Handle Errors here.
+        console.error('Error during redirect sign-in:', error);
+        const errorMessage = error.message;
+        const errorCode = error.code;
+        // You can display this error to the user if needed
+        document.getElementById('errorMessage').textContent = `Error: ${errorMessage}`;
+      });
 
     // --- DOM Element Selectors ---
     const signInTab = document.getElementById('signInTab');
@@ -115,7 +133,7 @@ async function initializeAuth() {
         googleBtn.addEventListener('click', async () => {
             errorMessageElement.textContent = '';
             try {
-                await signInWithPopup(auth, googleProvider);
+                await signInWithRedirect(auth, googleProvider);
                  // The onAuthStateChanged observer will handle the redirect
             } catch (error) {
                 errorMessageElement.textContent = error.message;
